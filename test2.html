@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alyssa Sunjin Im Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="animated-title">Welcome to Sunjin's Web</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="gamelist.html">Explore More Games</a></li> <!-- 🔥 페이지 이동 추가 -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <img src="test_image.webp" alt="Hero Image">
+            <h2>If you pass, you can see my smile!</h2>
+            <div id="gameContainer">
+                <canvas id="gameCanvas" width="800" height="400"></canvas>
+                <div id="overlay">
+                    <p id="overlayMessage">Do you want to start the game?</p>
+                    <button id="yesButton">Yes</button>
+                    <button id="noButton">No</button>
+                </div>
+            </div>
+        </section>
+        <!-- About Me Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hi! I'm Alyssa Sunjin Im. I'm passionate about web development and creating user-centered designs that are both functional and visually appealing.</p>
+        </section>
+
+        <!-- 구분용 빈 공간 추가 -->
+        <div class="section-divider"></div>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Work Experiences</h2>
+            <div class="list-item">
+                <img src="https://via.placeholder.com/50" alt="Company Logo">
+                <div>
+                    <h3>Software Engineer Intern</h3>
+                    <p>Company: XYZ Corp</p>
+                    <p>Duration: June 2023 - August 2023</p>
+                </div>
+            </div>
+            <div class="list-item">
+                <img src="https://via.placeholder.com/50" alt="Company Logo">
+                <div>
+                    <h3>Web Developer</h3>
+                    <p>Company: ABC Ltd</p>
+                    <p>Duration: January 2022 - May 2023</p>
+                </div>
+            </div>
+            <div class="list-item">
+                <img src="https://via.placeholder.com/50" alt="Company Logo">
+                <div>
+                    <h3>Freelance Designer</h3>
+                    <p>Specializing in UX/UI design and front-end development.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 구분용 빈 공간 추가 -->
+        <div class="section-divider"></div>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>Feel free to get in touch! I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024-2025 Alyssa Sunjin Im. All Rights Reserved.</p>
+    </footer>
+
+    <script src="game.js"></script>
+    <button class="chatbot-toggle-icon" id="chatbot-toggle">💬</button>
+
+    <!-- Embed Chatbot -->
+    <div class="chatbot-container" id="chatbot">
+        <div class="chatbot-header" id="chatbot-header">
+            Click to change size
+            <button class="close-btn" id="chatbot-close">✖</button>
+        </div>
+        <iframe src="https://copilotstudio.microsoft.com/environments/Default-482198bb-ae7b-4b25-8b7a-6d7f32faa083/bots/crad4_websiteQACopilot/webchat?__version__=2">
+        </iframe>
+    </div>
+    <script src="chatbot.js"></script>
+    <script src="typing.js"></script>
+</body>
+</html>
