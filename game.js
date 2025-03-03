@@ -162,11 +162,20 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (isMobile()) {
+        canvas.width = 800;  // 내부 크기는 유지
+        canvas.height = 400; 
+        canvas.style.width = "90vw";  // CSS로 화면 크기에 맞춤
+        canvas.style.height = "45vw";
         canvas.addEventListener("touchstart", function (event) {
             let touch = event.touches[0];
             let rect = canvas.getBoundingClientRect();
-            let touchX = touch.clientX - rect.left;
-            let touchY = touch.clientY - rect.top;
+
+            let scaleX = canvas.width / rect.width; // 정밀한 비율 계산
+            let scaleY = canvas.height / rect.height;
+
+            let touchX = (touch.clientX - rect.left) * scaleX;
+            let touchY = (touch.clientY - rect.top) * scaleY;
+
             player.x = touchX;
             player.y = touchY;
             updateCanvas();
