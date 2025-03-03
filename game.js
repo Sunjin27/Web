@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let obstacleFrequency = 100;
     let gapSize = 150;
     let gameActive = false;
+    let isTouching = false;
     const maxPlayTime = 25;
     const fps = 60;
 
@@ -167,27 +168,13 @@ document.addEventListener("DOMContentLoaded", function () {
         canvas.style.width = "90vw";  // CSS로 화면 크기에 맞춤
         canvas.style.height = "45vw";
         canvas.addEventListener("touchstart", function (event) {
-            let touch = event.touches[0];
-            let rect = canvas.getBoundingClientRect();
-
-            let scaleY = canvas.height / rect.height; // 비율 조정
-            let touchY = (touch.clientY - rect.top) * scaleY;
-
-            // 플레이어 기준 위쪽 터치 → 위로 이동
-            if (touchY < player.y) {
-                player.dy = -player.speed; // 위로 이동
-            }
-            // 플레이어 기준 아래쪽 터치 → 아래로 이동
-            else if (touchY > player.y) {
-                player.dy = player.speed; // 아래로 이동
-            }
-
-            updateCanvas();
+            isTouching = true;
+            player.dy = -player.speed; // 터치하면 위로 이동
         });
 
-        // 손을 떼면 멈추도록 설정
         canvas.addEventListener("touchend", function () {
-            player.dy = 0;
+            isTouching = false;
+            player.dy = player.speed; // 손을 떼면 아래로 이동
         });
     }
 
