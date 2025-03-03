@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ctx.translate(player.x, player.y);
         ctx.rotate(Math.PI / 2);
         ctx.fillStyle = 'black';
-        ctx.font = '20px Arial';
+        ctx.font = '30px Arial';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText(player.face, 0, 0);
