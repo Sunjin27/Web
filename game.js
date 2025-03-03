@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ctx.translate(player.x, player.y);
         ctx.rotate(Math.PI / 2);
         ctx.fillStyle = 'black';
-        ctx.font = '20px Arial';
+        ctx.font = isMobile() ? '12px Arial' : '20px Arial';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText(player.face, 0, 0);
@@ -170,15 +170,24 @@ document.addEventListener("DOMContentLoaded", function () {
             let touch = event.touches[0];
             let rect = canvas.getBoundingClientRect();
 
-            let scaleX = canvas.width / rect.width; // 정밀한 비율 계산
-            let scaleY = canvas.height / rect.height;
-
-            let touchX = (touch.clientX - rect.left) * scaleX;
+            let scaleY = canvas.height / rect.height; // 비율 조정
             let touchY = (touch.clientY - rect.top) * scaleY;
 
-            player.x = touchX;
-            player.y = touchY;
+            // 플레이어 기준 위쪽 터치 → 위로 이동
+            if (touchY < player.y) {
+                player.dy = -player.speed; // 위로 이동
+            }
+            // 플레이어 기준 아래쪽 터치 → 아래로 이동
+            else if (touchY > player.y) {
+                player.dy = player.speed; // 아래로 이동
+            }
+
             updateCanvas();
+        });
+
+        // 손을 떼면 멈추도록 설정
+        canvas.addEventListener("touchend", function () {
+            player.dy = 0;
         });
     }
 
