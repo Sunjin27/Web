@@ -110,6 +110,21 @@
         <iframe src="https://copilotstudio.microsoft.com/environments/Default-482198bb-ae7b-4b25-8b7a-6d7f32faa083/bots/crad4_websiteQACopilot/webchat?__version__=2">
         </iframe>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function isMobile() {
+                return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            }
+        
+            if (isMobile()) {
+                document.body.classList.add("mobile-mode");
+                console.log("모바일 환경 적용됨");
+            } else {
+                document.body.classList.add("desktop-mode");
+                console.log("PC 환경 적용됨");
+            }
+        });
+        </script>
     <script src="chatbot.js"></script>
     <script src="typing.js"></script>
 </body>
