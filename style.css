@@ -25,6 +25,32 @@ header {
         transform: scale(1);
     }
 }
+/* 🔥 터치 시 선택 방지 */
+body, canvas, #gameContainer {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    touch-action: none;
+}
+
+/* 🔥 iOS에서 길게 눌렀을 때 메뉴 방지 */
+canvas {
+    -webkit-touch-callout: none;
+}
+
+/* 🔥 모바일에서 게임 화면 크기 조정 */
+@media screen and (max-width: 768px) {
+    #gameContainer {
+        width: 90vw;
+        height: 60vh;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        touch-action: none;
+    }
+}
+
 
 /* 텍스트 전체가 한번에 등장하는 애니메이션 */
 .animated-title {
