@@ -157,10 +157,25 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener('keyup', (e) => {
         if (e.key === 'ArrowUp' || e.key === 'ArrowDown') player.dy = 0;
     });
+    function isMobile() {
+        return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    }
+
+    if (isMobile()) {
+        canvas.addEventListener("touchstart", function (event) {
+            let touch = event.touches[0];
+            let rect = canvas.getBoundingClientRect();
+            let touchX = touch.clientX - rect.left;
+            let touchY = touch.clientY - rect.top;
+            player.x = touchX;
+            player.y = touchY;
+            updateCanvas();
+        });
+    }
 
     // 🔥 키보드 입력 시 기본 스크롤 방지 (게임 실행 중일 때만)
     window.addEventListener("keydown", preventPageScroll);
-
+    //updateCanvas();
     startGame();
 
     /*exploreGameButton.addEventListener("click", function () {
