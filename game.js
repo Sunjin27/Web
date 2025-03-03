@@ -191,10 +191,6 @@ document.addEventListener("DOMContentLoaded", function () {
             player.dy = 0;
         });
     }
-    
-    document.addEventListener("touchmove", function (event) {
-        event.preventDefault();
-    }, { passive: false });
 
     // 🔥 키보드 입력 시 기본 스크롤 방지 (게임 실행 중일 때만)
     window.addEventListener("keydown", preventPageScroll);
