@@ -26,6 +26,10 @@ header {
     }
 }
 
+html {
+    scroll-behavior: smooth; /* 부드러운 스크롤 */
+}
+
 /* 텍스트 전체가 한번에 등장하는 애니메이션 */
 .animated-title {
     display: inline-block;
@@ -37,18 +41,83 @@ header {
     animation-fill-mode: forwards;
 }
 
+/* 🔥 experience.html 내부 h2 제목에만 밑줄 추가 */
+#experience-page h2 {
+    border-bottom: 2px solid #333; /* 밑줄 추가 */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    
+}
+
+
+/* 🔥 네비게이션 바 스타일 */
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+}
+/* 🔥 experience.html 내부 섹션 크기를 index.html과 동일하게 설정 */
+#experience-page #work-experience,
+#experience-page #project-experience,
+#experience-page #certification {
+    width: 90%; /* index.html과 동일한 너비 */
+    margin: 0 auto; /* 가운데 정렬 */
+    padding: 30px; /* index.html과 동일한 내부 여백 */
+    background: #ffffff; /* 흰색 배경 */
+    border-radius: 10px; /* 부드러운 모서리 */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 가벼운 그림자 */
 }
 nav ul li {
-    display: inline;
-    margin: 0 10px;
+    position: relative;
+    display: inline-block;
+    margin: 0 15px;
 }
+
 nav ul li a {
-    color: #fff;
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+/* 🔥 드롭다운 메뉴 기본적으로 숨김 */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 180px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* 🔥 드롭다운 내부 리스트 스타일 */
+.dropdown-content li {
+    list-style: none;
+    text-align: left;
+}
+
+.dropdown-content li a {
+    display: block;
+    padding: 10px;
+    color: black;
     text-decoration: none;
 }
+
+/* 🔥 마우스를 올리면 드롭다운 표시 */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 🔥 드롭다운 항목에 호버 효과 추가 */
+.dropdown-content li a:hover {
+    background-color: #f0f0f0;
+}
+
 main {
     padding: 20px;
 }
@@ -221,6 +290,21 @@ section {
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
+/* 🔥 About Me 섹션 스타일 */
+.about-container {
+    display: flex;
+    align-items: center; /* 이미지와 텍스트 수직 중앙 정렬 */
+    gap: 20px; /* 이미지와 텍스트 사이 간격 */
+}
+
+/* 🔥 프로필 이미지 스타일 */
+.profile-image {
+    width: 150px; /* 원하는 크기로 조정 */
+    height: 150px;
+    border-radius: 50%; /* 동그란 이미지 */
+    object-fit: cover; /* 비율 유지하며 크롭 */
+}
+
 
 /*#exploreGameButton {
     position: absolute;
