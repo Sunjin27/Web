@@ -49,7 +49,6 @@ html {
     
 }
 
-
 /* 🔥 네비게이션 바 스타일 */
 nav ul {
     list-style: none;
@@ -81,9 +80,46 @@ nav ul li a {
     color: white;
     text-decoration: none;
     padding: 10px 15px;
+    transition: transform 0.2s ease-in-out, color 0.3s ease;
+}
+nav ul li a:hover {
+    transform: scale(1.1);  /* 살짝 확대 */
+    color: #eaf5b0; 
 }
 
-/* 🔥 드롭다운 메뉴 기본적으로 숨김 */
+
+/* 🔥 아이콘을 Home 오른쪽에 배치 (수직 정렬 문제 해결) */
+.nav-icons {
+    display: flex; 
+    align-items: center; /* 아이콘을 가로로 정렬 */
+    gap: 15px; /* 아이콘 사이 간격 */
+}
+
+/* 🔥 아이콘 스타일 */
+.icon-link {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* 🔥 아이콘 크기 및 정렬 */
+.icon-link i {
+    font-size: 18px;
+}
+
+.nav-icons .icon-link.youtube:hover {
+    transform: scale(1.2);
+    color: #FF0000; /* YouTube hover 시 빨간색 */
+}
+
+/* 🔥 호버 효과 */
+.icon-link:hover {
+    transform: scale(1.2);
+    color: #007bff;
+}
+
+/* 🔥 드롭다운 메뉴 기본 스타일 */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -92,30 +128,37 @@ nav ul li a {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     border-radius: 5px;
-    overflow: hidden;
+    left: 0; /* 왼쪽 정렬 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+    padding: 5px 0; /* 위아래 여백 */
 }
 
 /* 🔥 드롭다운 내부 리스트 스타일 */
 .dropdown-content li {
     list-style: none;
-    text-align: left;
+    text-align: left; /* 왼쪽 정렬 */
+    padding: 10px 15px; /* 여백 조정 */
 }
 
+/* 🔥 드롭다운 내부 글씨 크기 조정 */
 .dropdown-content li a {
     display: block;
-    padding: 10px;
+    font-size: 12px; /* 폰트 크기 동일하게 조정 */
     color: black;
     text-decoration: none;
+    padding: 5px 20px; /* 패딩 조정 */
 }
 
-/* 🔥 마우스를 올리면 드롭다운 표시 */
+/* 🔥 드롭다운 hover 효과 */
+.dropdown-content li a:hover {
+    background-color: #dbdbdb;
+    color: #333;
+    font-weight: bold;
+}
+
+/* 🔥 드롭다운 메뉴 활성화 */
 .dropdown:hover .dropdown-content {
     display: block;
-}
-
-/* 🔥 드롭다운 항목에 호버 효과 추가 */
-.dropdown-content li a:hover {
-    background-color: #f0f0f0;
 }
 
 main {
