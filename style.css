@@ -272,6 +272,11 @@ canvas {
 .list-item:last-child {
     border-bottom: none;
 }
+#certification .list-item img {
+    width: 200px;
+    height: 100px;
+    border-radius: 0%;
+}
 footer {
     background: #333;
     color: #fff;

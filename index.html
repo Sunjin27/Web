@@ -124,19 +124,47 @@
         <section id="contact">
             <h2>Contact Me</h2>
             <p>Feel free to reach out! I'm always open to exploring new projects, creative ideas, and opportunities to contribute to your vision.</p>
-            <form>
+        
+            <!-- 🔥 Contact Form -->
+            <form id="contactForm">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
-
+        
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
-
+        
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="4" required></textarea>
-
-                <button type="submit">Submit</button>
+        
+                <button type="submit">Send Email</button>
             </form>
         </section>
+        
+        <!-- EmailJS 라이브러리 추가 -->
+        <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+        
+        <!-- EmailJS를 통한 자동 이메일 전송 스크립트 -->
+        <script>
+            (function() {
+                emailjs.init("3YueNLW7TtgieZ_6o"); // EmailJS에서 제공하는 User ID
+        
+                document.getElementById("contactForm").addEventListener("submit", function(event) {
+                    event.preventDefault(); // 기본 폼 제출 방지
+        
+                    emailjs.send("service_poz7ked", "template_wmo0w19", {
+                        from_name: document.getElementById("name").value,
+                        from_email: document.getElementById("email").value,
+                        message: document.getElementById("message").value,
+                    }).then(function(response) {
+                        alert("Email sent successfully!");
+                        contactForm.reset();
+                    }, function(error) {
+                        alert("Failed to send email. Please try again.");
+                        contactForm.reset();
+                    });
+                });
+            })();
+        </script>        
 
     </main>
 
