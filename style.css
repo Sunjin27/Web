@@ -124,7 +124,7 @@ nav ul li a:hover {
     display: none;
     position: absolute;
     background-color: white;
-    min-width: 180px;
+    min-width: 160px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     border-radius: 5px;
@@ -137,7 +137,7 @@ nav ul li a:hover {
 .dropdown-content li {
     list-style: none;
     text-align: left; /* 왼쪽 정렬 */
-    padding: 10px 15px; /* 여백 조정 */
+    padding: 10px 5px; /* 여백 조정 */
 }
 
 /* 🔥 드롭다운 내부 글씨 크기 조정 */
@@ -146,7 +146,7 @@ nav ul li a:hover {
     font-size: 12px; /* 폰트 크기 동일하게 조정 */
     color: black;
     text-decoration: none;
-    padding: 5px 20px; /* 패딩 조정 */
+    padding: 5px 0px; /* 패딩 조정 */
 }
 
 /* 🔥 드롭다운 hover 효과 */
@@ -184,7 +184,7 @@ main {
 
 .hero h2 {
     position: absolute;
-    top: 20px;
+    top: 10px;
     left: 40px;
     color: #fff;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
@@ -196,7 +196,7 @@ main {
     transform: translate(-50%, -50%);
     width: 800px;
     height: 400px;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.35);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -251,11 +251,11 @@ canvas {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
+    background-color: #494949;
     color: white;
 }
 #overlay button:hover {
-    background-color: #0056b3;
+    background-color: #333;
 }
 .list-item {
     display: flex;
@@ -264,8 +264,8 @@ canvas {
     border-bottom: 1px solid #ddd;
 }
 .list-item img {
-    width: 50px;
-    height: 50px;
+    width: 180px;
+    height: 100px;
     border-radius: 50%;
     margin-right: 15px;
 }
@@ -300,7 +300,7 @@ footer {
 
 #contact form button {
     font-family: 'Poppins', sans-serif; /* 버튼 폰트 적용 */
-    background-color: #d098f5;
+    background-color: #494949;
     color: white;
     border: none;
     cursor: pointer;
@@ -308,7 +308,7 @@ footer {
 }
 
 #contact form button:hover {
-    background-color: #c379f5;
+    background-color: #333;
 }
 
 section {
@@ -335,15 +335,25 @@ section {
 }
 /* 🔥 About Me 섹션 스타일 */
 .about-container {
+    display: flex; 
+    align-items: flex-start; /* 이미지와 텍스트를 수직 정렬 */
+    gap: 30px; /* 이미지와 텍스트 사이 간격 */
+}
+.about-text {
     display: flex;
-    align-items: center; /* 이미지와 텍스트 수직 중앙 정렬 */
-    gap: 20px; /* 이미지와 텍스트 사이 간격 */
+    flex-direction: row; /* 가로 정렬 */
+    gap: 50px; /* 두 개의 설명 블록 사이 간격 */
+    max-width: 800px; /* 적당한 최대 너비 설정 */
+}
+
+.about-text p {
+    flex: 1; /* 동일한 너비 배분 */
 }
 
 /* 🔥 프로필 이미지 스타일 */
 .profile-image {
-    width: 150px; /* 원하는 크기로 조정 */
-    height: 150px;
+    width: 200px; /* 원하는 크기로 조정 */
+    height: 200px;
     border-radius: 50%; /* 동그란 이미지 */
     object-fit: cover; /* 비율 유지하며 크롭 */
 }
@@ -420,7 +430,7 @@ iframe {
     bottom: 20px;
     right: 20px;
     z-index: 1100;
-    background-color: #c379f5;
+    background-color: #333;
     color: white;
     border: none;
     border-radius: 50%;

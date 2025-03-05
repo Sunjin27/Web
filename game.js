@@ -46,8 +46,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function createObstacle() {
         const height = Math.random() * (canvas.height - gapSize - 50) + 50;
-        obstacles.push({ x: canvas.width, y: 0, width: 30, height: height, color: 'brown' });
-        obstacles.push({ x: canvas.width, y: height + gapSize, width: 30, height: canvas.height - height - gapSize, color: 'brown' });
+        obstacles.push({ x: canvas.width, y: 0, width: 30, height: height, color: '#19204D'});
+        obstacles.push({ x: canvas.width, y: height + gapSize, width: 30, height: canvas.height - height - gapSize, color: '#19204D'});
     }
 
     function drawObstacles() {
