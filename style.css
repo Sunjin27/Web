@@ -527,3 +527,17 @@ iframe {
     width: 100%;
     background: transparent;
 }
+
+.list-item h3 {
+    margin-bottom: 5px; /* 🔹 직책과 회사명 간 간격 축소 */
+}
+
+.list-item p {
+    margin-top: 3px;  /* 🔹 위쪽 마진 줄여서 더 가까이 배치 */
+    margin-bottom: 3px; /* 🔹 아래쪽 마진 줄여서 리스트와 적절한 간격 유지 */
+}
+
+.list-item ul {
+    margin-top: 10px; /* 🔹 리스트와 위쪽 요소 간 간격 조절 */
+    max-width: 70vw
+}
