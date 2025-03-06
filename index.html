@@ -13,7 +13,7 @@
     <header>
         <h1 class="animated-title">Welcome to Sunjin's Web</h1>
     
-        <!-- 🔹 모바일에서 아이콘을 표시할 별도 컨테이너 추가 -->
+        <!-- 모바일에서 아이콘을 표시할 별도 컨테이너 추가 -->
         <div id="mobile-icons" class="nav-icons">
             <a href="mailto:your_email@example.com" class="icon-link" title="Email">
                 <i class="fas fa-envelope"></i>
@@ -168,16 +168,14 @@
             </form>
         </section>
         
-        <!-- EmailJS 라이브러리 추가 -->
         <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-        
-        <!-- EmailJS를 통한 자동 이메일 전송 스크립트 -->
+
         <script>
             (function() {
-                emailjs.init("3YueNLW7TtgieZ_6o"); // EmailJS에서 제공하는 User ID
+                emailjs.init("3YueNLW7TtgieZ_6o"); 
         
                 document.getElementById("contactForm").addEventListener("submit", function(event) {
-                    event.preventDefault(); // 기본 폼 제출 방지
+                    event.preventDefault(); 
         
                     emailjs.send("service_poz7ked", "template_wmo0w19", {
                         from_name: document.getElementById("name").value,

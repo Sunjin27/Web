@@ -239,6 +239,15 @@ main {
     .desktop-icons {
         display: none; /* 데스크톱에서 사용되던 아이콘 숨김 */
     }
+    nav ul li a {
+        font-size: 14px; /* 글씨 크기 줄이기 */
+        padding: 8px 10px; /* 간격 조정 */
+    }
+
+    /* 🔥 네비게이션 전체 크기 줄이기 */
+    nav ul {
+        padding: 5px 0;
+    }
 }
 .mobile-mode #gameContainer {
     width: 90vw;
