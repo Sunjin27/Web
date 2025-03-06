@@ -211,6 +211,21 @@ main {
         left: 50%;
         transform: translate(-50%, -50%);
     }
+    #experience, #contact, #explore {
+        width: 95vw; /* 🔹 모바일에서는 거의 전체 너비를 차지 */
+        padding: 3vw; /* 🔹 패딩 조정 */
+        margin-bottom: 3vw; /* 🔹 섹션 간 간격 조정 */
+    }
+
+    #experience h2, #contact h2, #explore h2 {
+        font-size: 4vw; /* 🔹 모바일에서 제목 크기 줄이기 */
+        margin-bottom: 1.5vw; /* 🔹 제목 아래 간격 줄이기 */
+    }
+
+    #experience p, #contact p, #explore p {
+        font-size: 3vw; /* 🔹 모바일에서 글자 크기 줄이기 */
+        line-height: 1.3; /* 🔹 줄 간격 더 줄이기 */
+    }
 }
 .mobile-mode #gameContainer {
     width: 90vw;
