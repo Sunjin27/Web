@@ -3,14 +3,16 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    background-color: #333;
     overflow-x: hidden;
 }
 header {
     background: #333;
     color: #fff;
-    padding: 10px 0;
     text-align: center;
+  
+    /* 높이 고정 ❌ → 패딩만 반응형 */
+    padding: clamp(6px, 1.2vw, 14px) 0;
 }
 @keyframes pop-in {
     0% {
@@ -52,87 +54,113 @@ html {
 /* 🔥 네비게이션 바 스타일 */
 nav ul {
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: clamp(6px, 1vw, 12px);   /* 반응형 패딩 */
     display: flex;
     justify-content: center;
+    align-items: center;              /* 세로 중앙 */
+    flex-wrap: wrap;                  /* 줄바꿈 허용 (잘림 방지 핵심) */
+    gap: clamp(6px, 1.2vw, 14px);     /* li margin 대신 gap 사용 */
     background-color: #333;
 }
-/* 🔥 experience.html 내부 섹션 크기를 index.html과 동일하게 설정 */
-#experience-page #work-experience,
-#experience-page #project-experience,
-#experience-page #certification {
-    width: 90%; /* index.html과 동일한 너비 */
-    margin: 0 auto; /* 가운데 정렬 */
-    padding: 30px; /* index.html과 동일한 내부 여백 */
-    background: #ffffff; /* 흰색 배경 */
-    border-radius: 10px; /* 부드러운 모서리 */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 가벼운 그림자 */
-}
+
 nav ul li {
     position: relative;
-    display: inline-block;
-    margin: 0 15px;
+    display: flex;     /* inline-block 제거 */
+    margin: 0;         /* margin 제거 (gap이 대신함) */
 }
 
-nav ul li a {
+
+nav ul li a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  text-decoration: none;
+
+  font-size: clamp(12px, 1.6vw, 16px);
+  line-height: 1.2;
+
+  padding: clamp(6px, 0.9vw, 10px) clamp(8px, 1.2vw, 14px);
+
+  transition: transform 120ms ease-out, color 120ms ease-out;
+  transform-origin: center;
+}
+
+/* 2) ❌ a:hover는 범위가 달라서 “삭제”하거나 무력화 */
+nav ul li a:hover{
+  transform: none;
+  color: inherit;
+}
+
+/* 3) ✅ li hover 범위로 글자효과 적용 (드롭다운 범위와 동일) */
+nav ul li:hover > a{
+  transform: scale(1.1);
+  color: #eaf5b0;
+}
+
+nav ul li.dropdown {
+    position: relative;      /* 이미 있으면 OK */
+ }
+nav ul li.dropdown:hover .dropdown-content {
     display: block;
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    transition: transform 0.2s ease-in-out, color 0.3s ease;
-}
-nav ul li a:hover {
-    transform: scale(1.1);  /* 살짝 확대 */
-    color: #eaf5b0; 
 }
 
-
-/* 🔥 아이콘을 Home 오른쪽에 배치 (수직 정렬 문제 해결) */
 .nav-icons {
-    display: flex; 
-    align-items: center; /* 아이콘을 가로로 정렬 */
-    gap: 15px; /* 아이콘 사이 간격 */
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-/* 🔥 아이콘 스타일 */
+/* 기본 아이콘 색/크기 */
+.nav-icons .icon-link,
+.nav-icons .icon-link i {
+  color: #fff;                 /* 기본은 무조건 흰색 */
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
 .icon-link {
-    font-size: 20px;
-    color: white;
-    text-decoration: none;
-    transition: transform 0.2s ease-in-out;
+  font-size: clamp(16px, 1.8vw, 20px);
 }
-
-/* 🔥 아이콘 크기 및 정렬 */
 .icon-link i {
-    font-size: 18px;
+  font-size: clamp(14px, 1.6vw, 18px);
 }
 
-.nav-icons .icon-link.youtube:hover {
-    transform: scale(1.2);
-    color: #FF0000; /* YouTube hover 시 빨간색 */
+/* hover: 기본은 파랑 */
+.nav-icons .icon-link:hover,
+.nav-icons .icon-link:hover i {
+  transform: scale(1.2);
+  color: #007bff;
 }
 
-/* 🔥 호버 효과 */
-.icon-link:hover {
-    transform: scale(1.2);
-    color: #007bff;
+/* 유튜브 hover만 빨강 (위의 파랑을 덮어씀) */
+.nav-icons .icon-link.youtube:hover,
+.nav-icons .icon-link.youtube:hover i {
+  color: #FF0000;
 }
 
-/* 🔥 드롭다운 메뉴 기본 스타일 */
 .dropdown-content {
-    display: none;
     position: absolute;
-    background-color: white;
-    min-width: 160px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    border-radius: 5px;
-    left: 0; /* 왼쪽 정렬 */
-    text-align: left; /* 텍스트 왼쪽 정렬 */
-    padding: 5px 0; /* 위아래 여백 */
-}
-
+    top: calc(100% - 2px);
+    left: 0;
+    transform: none;
+  
+    width: max-content;
+    min-width: 100%;
+  
+    padding: 8px clamp(14px, 2vw, 20px);
+  
+    background: rgba(255, 255, 255, 0.75);
+  
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 2000;
+  
+    display: none;
+  }
+  
 /* 🔥 드롭다운 내부 리스트 스타일 */
 .dropdown-content li {
     list-style: none;
@@ -143,22 +171,51 @@ nav ul li a:hover {
 /* 🔥 드롭다운 내부 글씨 크기 조정 */
 .dropdown-content li a {
     display: block;
-    font-size: 12px; /* 폰트 크기 동일하게 조정 */
-    color: black;
+    font-size: 12px;
+    color: #111 !important;
     text-decoration: none;
-    padding: 5px 0px; /* 패딩 조정 */
+    padding: 6px 0;
+
+    position: relative;      /* 밑줄 기준 */
+    font-weight: 500;
 }
 
-/* 🔥 드롭다운 hover 효과 */
+/* ❌ 회색 배경 제거 + 밑줄 hover */
+.dropdown-content li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+
+    width: 0;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.75); /* 반투명 밑줄 */
+
+    transition: width 0.25s ease;
+}
+
+.dropdown-content li a:hover::after {
+    width: 100%;
+}
+
 .dropdown-content li a:hover {
-    background-color: #dbdbdb;
-    color: #333;
-    font-weight: bold;
+    color: #222 !important;
+    font-weight: 600;
 }
 
 /* 🔥 드롭다운 메뉴 활성화 */
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+/* 🔥 hover 끊김 방지용 브리지 */
+.dropdown-content::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 0;
+    width: 100%;
+    height: 12px;
 }
 
 main {
@@ -184,11 +241,27 @@ main {
 
 .hero h2 {
     position: absolute;
-    top: 10px;
-    left: 40px;
+  
+    /* 위치도 화면에 따라 자동 */
+    top: clamp(8px, 2vw, 16px);
+    left: clamp(16px, 5vw, 40px);
+  
+    /* 글자 크기 자동 */
+    font-size: clamp(16px, 3vw, 24px);
+    font-weight: 600;
+  
     color: #fff;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-}
+  
+    /* 그림자도 과하지 않게 */
+    text-shadow:
+      0 clamp(1px, 0.3vw, 2px)
+      clamp(2px, 0.6vw, 4px)
+      rgba(0, 0, 0, 0.8);
+  
+    line-height: 1.2;
+    white-space: nowrap; /* 문장 줄바꿈 방지 (원하면 제거 가능) */
+  }
+  
 #gameContainer {
     position: absolute;
     top: 50%;
@@ -203,14 +276,19 @@ main {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+#gameCanvas {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 #mobile-icons {
     display: none;
 }
 @media screen and (max-width: 768px) {
     #gameContainer {
         width: 90vw;
-        height: 60vh;
-        top: 55%;
+        height: 90vw/2;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
@@ -251,46 +329,65 @@ main {
 }
 .mobile-mode #gameContainer {
     width: 90vw;
-    height: 60vh;
+    height: 90vw/2;
 }
 
 /* 모바일 전용 UI 요소 추가 가능 */
 .mobile-mode .hero h2 {
     font-size: 16px;
 }
-canvas {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
+
+/* 게임 위에 뜨는 팝업(overlay) 반응형 */
 #overlay {
-    position: absolute;
-    width: 250px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    display: none;
-    z-index: 10;
+  position: absolute;
 
-    /* 부모 요소(#gameContainer) 기준 중앙 정렬 */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  /* 중앙 정렬 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* 박스 크기: 화면에 따라 자동 */
+  width: clamp(200px, 40vw, 320px);
+
+  /* 여백도 자동 */
+  padding: clamp(12px, 2vw, 22px);
+
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: clamp(10px, 2vw, 14px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  text-align: center;
+  display: none;
+  z-index: 10;
 }
 
+/* 메시지 글씨 크기 자동 */
+#overlayMessage {
+  margin: 0 0 clamp(8px, 1.2vw, 14px);
+  font-size: clamp(14px, 2.2vw, 18px);
+  line-height: 1.25;
+}
 
+/* 버튼들도 자동으로 줄어들게 */
 #overlay button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #494949;
-    color: white;
+  margin: clamp(6px, 1vw, 10px);
+  padding: clamp(8px, 1.4vw, 12px) clamp(14px, 2vw, 22px);
+
+  font-size: clamp(13px, 2vw, 16px);
+
+  cursor: pointer;
+  border: none;
+  border-radius: clamp(6px, 1vw, 10px);
+
+  background-color: #494949;
+  color: white;
+  white-space: nowrap; /* 버튼 글자 줄바꿈 방지 */
 }
+
+#overlay button:hover {
+  background-color: #333;
+}
+
 #overlay button:hover {
     background-color: #333;
 }

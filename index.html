@@ -12,63 +12,40 @@
 <body>
     <header>
         <h1 class="animated-title">Welcome to Sunjin's Web</h1>
-    
-        <!-- 모바일에서 아이콘을 표시할 별도 컨테이너 추가 -->
-        <div id="mobile-icons" class="nav-icons">
-            <a href="mailto:your_email@example.com" class="icon-link" title="Email">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/your-linkedin-profile/" target="_blank" class="icon-link" title="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://www.youtube.com/channel/your-channel-id" target="_blank" class="icon-link youtube" title="YouTube">
-                <i class="fab fa-youtube"></i>
-            </a>
-        </div>
-    
         <nav>
-            <ul class="nav-bar">
-                <li><a href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <a href="experience.html" id="experienceLink">Experience</a>
-                    <ul class="dropdown-content">
-                        <li><a href="experience.html#work-experience">Work Experience</a></li>
-                        <li><a href="experience.html#project-experience">Project Experience</a></li>
-                        <li><a href="experience.html#certification">Certification</a></li>
-                    </ul>
-                </li>
-                <li><a href="gamelist.html">Explore More Games</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li class="nav-icons desktop-icons">
-                    <a href="mailto:ekfrif8838@gmail.com" class="icon-link" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/sunjin-alyssa-im" target="_blank" class="icon-link" title="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://youtube.com/@mohajin?si=cTNih-sMJ63ntj_6" target="_blank" class="icon-link youtube" title="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>   
-                    </a>
-                </li>
-            </ul>
+          <ul class="nav-bar">
+            <li><a href="index.html">Home</a></li>
+      
+            <li class="dropdown">
+              <a href="experience.html" id="experienceLink">Experience</a>
+              <ul class="dropdown-content">
+                <li><a href="experience.html#work-experience">Work Experience</a></li>
+                <li><a href="experience.html#project-experience">Project Experience</a></li>
+                <li><a href="experience.html#certification">Certification</a></li>
+              </ul>
+            </li>
+      
+            <li><a href="gamelist.html">Explore Games</a></li>
+            <li><a href="#contact">Contact</a></li>
+      
+            <li class="nav-icons">
+              <a href="mailto:ekfrif8838@gmail.com" class="icon-link" title="Email">
+                <i class="fas fa-envelope"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/sunjin-alyssa-im" target="_blank" class="icon-link" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="https://youtube.com/@mohajin?si=cTNih-sMJ63ntj_6" target="_blank" class="icon-link youtube" title="YouTube">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </li>
+          </ul>
         </nav>
-    </header>
+      </header>
+      
       
 
     <main>
-        <section class="hero">
-            <img src="background.jpeg" alt="Hero Image">
-            <h2>If you pass, you can see my smile!</h2>
-            <div id="gameContainer">
-                <canvas id="gameCanvas" width="800" height="400"></canvas>
-                <div id="overlay">
-                    <p id="overlayMessage">Do you want to start the game?</p>
-                    <button id="yesButton">Yes</button>
-                    <button id="noButton">No</button>
-                </div>
-            </div>
-        </section>
         <!-- About Me Section -->
         <section id="about">
             <h2>About Me</h2>
@@ -197,18 +174,19 @@
     <footer>
         <p>&copy; 2024-2025 Alyssa Sunjin Im. All Rights Reserved.</p>
     </footer>
-
     <script src="game.js"></script>
+
+     <!--
     <button class="chatbot-toggle-icon" id="chatbot-toggle">💬</button>
 
-    <!-- Embed Chatbot -->
+    ---- Embed Chatbot 
     <div class="chatbot-container" id="chatbot">
         <div class="chatbot-header" id="chatbot-header">
             Click to change size
             <button class="close-btn" id="chatbot-close">✖</button>
         </div>
         <iframe src="https://copilotstudio.microsoft.com/environments/c089eb8a-cb82-efc7-9740-ee503c78080e/bots/crd41_agent/webchat?__version__=2" frameborder="0" style="width: 100%; height: 100%;"></iframe>
-    </div>
+    </div>-->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             function isMobile() {

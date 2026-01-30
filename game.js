@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let obstacles = [];
     let frame = 0;
     let speed = 5;
-    const initialSpeed = 9;
-    const maxSpeed = 15;
+    const initialSpeed = 12;
+    const maxSpeed = 25;
     let obstacleFrequency = 100;
     let gapSize = 150;
     let gameActive = false;
@@ -150,6 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
         noButton.onclick = () => overlay.style.display = 'none';
     }
 
+
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowUp') player.dy = -player.speed;
         else if (e.key === 'ArrowDown') player.dy = player.speed;
@@ -191,7 +192,13 @@ document.addEventListener("DOMContentLoaded", function () {
             player.dy = 0;
         });
     }
-
+    function recenterOverlay() {
+        if (overlay.style.display === "block") positionOverlay();
+      }
+      
+    window.addEventListener("resize", recenterOverlay);
+    window.addEventListener("orientationchange", recenterOverlay);
+      
     // 🔥 키보드 입력 시 기본 스크롤 방지 (게임 실행 중일 때만)
     window.addEventListener("keydown", preventPageScroll);
     startGame();

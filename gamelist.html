@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <h1 class="animated-title" id="game-title">Explore More Games</h1>
+        <h1 class="animated-title" id="game-title">Explore My Games</h1>
         <nav>
             <ul class="nav-bar">
                 <li><a href="index.html">Home</a></li>
@@ -22,7 +22,7 @@
                         <li><a href="experience.html#certification">Certification</a></li>
                     </ul>
                 </li>
-                <li><a href="gamelist.html">Explore More Games</a></li>
+                <li><a href="gamelist.html">Explore Games</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li class="nav-icons">
                     <a href="mailto:ekfrif8838@gmail.com" class="icon-link" title="Email">
@@ -40,6 +40,19 @@
     </header>
 
     <main>
+        <section class="hero">
+            <img src="background.jpeg" alt="Hero Image">
+            <h2>If you pass, you can see my smile!</h2>
+            <div id="gameContainer">
+                <canvas id="gameCanvas" width="800" height="400"></canvas>
+                <div id="overlay">
+                    <p id="overlayMessage">Do you want to start the game?</p>
+                    <button id="yesButton">Yes</button>
+                    <button id="noButton">No</button>
+                </div>
+            </div>
+        </section>
+
         <section id="games">
             <h2>To be continued :D</h2>
             <ul>
@@ -54,6 +67,7 @@
 
     <script src="typing.js"></script>
     <script src="contact.js"></script>
+    <script src="game.js"></script>
 </body>
 </html>
 
